@@ -1,7 +1,7 @@
 #!/bin/bash
 
 INPUT_CONFIG_PATH="$1"
-CONFIG=""
+CONFIG=" --config-path=/default.toml"
 
 # check if a custom config have been provided
 if [ -f "$GITHUB_WORKSPACE/$INPUT_CONFIG_PATH" ]; then
