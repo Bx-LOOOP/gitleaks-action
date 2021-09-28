@@ -1,0 +1,14 @@
+name: gitleaks
+
+on:
+  push:
+
+jobs:
+  gitleaks:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: '0'
+    - name: gitleaks
+      uses: bx-looop/gitleaks-action@v1.6.1
