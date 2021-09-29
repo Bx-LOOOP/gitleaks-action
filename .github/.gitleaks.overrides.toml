@@ -1,0 +1,6 @@
+[[rules]]
+  description = "AWS Access Key"
+
+  [rules.allowlist]
+    description = "Tests"
+    commits = ["20fc1291b984a8374b5d19a4442645e7aae506d6"]

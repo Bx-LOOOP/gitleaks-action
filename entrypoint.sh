@@ -1,12 +1,25 @@
 #!/bin/bash
 
 INPUT_CONFIG_PATH="$1"
-CONFIG=" --config-path=/default.toml"
+INPUT_OVERRIDES_CONFIG_PATH="$2"
+CONFIG_PATH="/default.toml"
+
+echo $GITHUB_WORKSPACE
+echo $INPUT_CONFIG_PATH
+echo $INPUT_OVERRIDES_CONFIG_PATH
 
 # check if a custom config have been provided
 if [ -f "$GITHUB_WORKSPACE/$INPUT_CONFIG_PATH" ]; then
-  CONFIG=" --config-path=$GITHUB_WORKSPACE/$INPUT_CONFIG_PATH"
+  CONFIG_PATH="$GITHUB_WORKSPACE/$INPUT_CONFIG_PATH"
 fi
+
+if [ -f "$GITHUB_WORKSPACE/$INPUT_OVERRIDES_CONFIG_PATH" ]; then
+  echo merging ${GITHUB_WORKSPACE}/${INPUT_OVERRIDES_CONFIG_PATH} into ${CONFIG_PATH}
+  node ./merge.js "$CONFIG_PATH" "$GITHUB_WORKSPACE/$INPUT_OVERRIDES_CONFIG_PATH" > "$GITHUB_WORKSPACE/.gitleaks.merged.toml"
+  CONFIG_PATH="$GITHUB_WORKSPACE/.gitleaks.merged.toml"
+fi
+
+CONFIG=" --config-path=${CONFIG_PATH}"
 
 echo running gitleaks "$(gitleaks --version) with the following command👇"
 
