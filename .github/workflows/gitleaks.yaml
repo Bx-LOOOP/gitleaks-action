@@ -11,4 +11,4 @@ jobs:
       with:
         fetch-depth: '0'
     - name: gitleaks
-      uses: bx-looop/gitleaks-action@v1.6.1
+      uses: bx-looop/gitleaks-action@gitleaks
