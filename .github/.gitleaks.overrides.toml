@@ -1,0 +1,20 @@
+[[rules]]
+  description = "AWS Access Key"
+
+  [rules.allowlist]
+    description = "Tests"
+    commits = [
+      "20fc1291b984a8374b5d19a4442645e7aae506d6", 
+      "b5714cec629d710b7880a4158a8809f1cfee8448",
+      "e1a5408dec0df17125c6a2e4bc57fa56e1296e7d",
+      "e7150a87e012d353a2c2e1ca8ec832b036dbde40",
+    ]
+
+[[rules]]
+  description = "Google (GCP) Service Account"
+
+  [rules.allowlist]
+    description = "Tests"
+    commits = [
+      "897ecc1bbe20cf2fed9fa763f9eec8f34b5e8786",
+    ]
