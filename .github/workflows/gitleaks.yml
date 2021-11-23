@@ -1,0 +1,5 @@
+name: git-leaks
+on: push
+jobs:
+  git-leaks:
+    uses: bx-looop/bx-workflows/.github/workflows/git-leaks.yml@main
